@@ -1,0 +1,171 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.product{
+    width: 85%;
+    position: relative;
+}
+.bold{
+    font-weight: bold;
+}
+.header1{
+    width: 100%;
+}
+.header{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(255 198 2);
+    line-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.right, .left{
+    width: 150px;
+    display: flex;
+    justify-content: space-around;
+}
+.banner{
+    width: 100%;
+    height: 500px;
+    margin-bottom: 20px;
+}
+.banner2{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.anh{
+    width: 200px;
+    height: 200px;
+}
+#image-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto;
+    justify-content: space-around;
+    gap: 20px;
+    /* text-align: center; */
+    margin-left: 10%;
+}
+.nav{
+    width: 10%;
+}
+.box{
+    border: 0.5px solid gainsboro;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+}
+.container4{
+    border: 0.5px solid gainsboro;
+    padding: 20px;
+    width: 80%;
+}
+.filter{
+    margin-top: 10px;
+}
+.product-section{
+    margin-top: 20px;
+    border: 0.5px solid gainsboro;
+}
+.search{
+    border: 0.5px solid gainsboro;
+    height: 50px;
+}
+.search-input{
+    width: 40%;
+    margin: 14px 20px;
+}
+.search-button{
+    background-color: rgb(79, 205, 79);
+    border: 0.5px solid gainsboro;
+    height: 26px;
+    cursor: pointer;
+    border-radius: 8%;
+    color: white;
+}
+.add{
+    margin: 20px;
+    background-color: rgb(66, 211, 244);
+    color: rgb(255, 255, 255);
+    height: 30px;
+    border: 0.5px solid gainsboro;
+    border-radius: 8%;
+    cursor: pointer;
+}
+.add:hover, .search-button:hover, .btn-delete:hover, .btn-edit:hover{
+    border: 1px solid gray;
+}
+.info{
+    width: 300px;
+}
+th, td{
+    padding: 10px 20px;
+}
+.btn-edit, .btn-delete{
+    border: 0.5px solid gainsboro;
+    border-radius: 8%;
+    cursor: pointer;
+    color: white;
+}
+.btn-delete{
+    background-color: rgb(223, 48, 17);
+}
+.btn-edit{
+    background-color: rgb(234, 171, 23);
+}
+.bar{
+    display: flex;
+    margin: 20px;
+}
+.box-bar{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(25, 146, 216);
+    text-align: center;
+    line-height: 30px;
+    border: 0.4px solid rgb(79, 79, 79);
+    color: aliceblue;
+    font-size: 20px;
+    cursor: pointer;
+}
+.box-bar:hover{
+    border: 0.5px solid gainsboro;
+}
+.close{
+    background-color: crimson;
+    color: aliceblue;
+    padding: 0 5px 5px 10px;
+    cursor: pointer;
+    float: right;
+}
+.myModal{
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background-color: rgba(79, 79, 79, 0.4);
+    display: none;
+}
+.modal-content{
+    border: 0.4px solid rgb(79, 79, 79);
+    width: 95%;
+    margin-left: 2%;
+    margin-top: 2%;
+    height: 60%;
+    background-color: aliceblue;
+}
+.modal-input{
+    width: 98%;
+    margin: 10px;
+}
+.cancel-button, .add-button{
+    float: right;
+    margin: 0 5px 5px 0;
+    cursor: pointer;
+}
