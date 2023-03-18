@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script language="javascript" src="b8.js"></script>
+    <link rel="stylesheet" href="b8.css">
+</head>
+<body>
+    <div class="header">
+
+    </div>
+    <h2>Danh mục</h2>
+    <div class="container">
+        <div class="nav">
+            <div>
+                <div class="container2">
+                    <div class="box">Manufacturer</div>
+                    <div class="box">Category</div>
+                    <div class="box">Product</div>
+                    <div class="box">Account</div>
+                </div>
+            </div>
+            <h3>Manufacturers</h3>
+                <div class="container3">
+                    <div class="box">SAMSUNG</div>
+                    <div class="box">APPLE</div>
+                    <div class="box">XIAOMI</div>
+                    <div class="box">OPPO</div>
+                </div>
+            <h3>Categorys</h3>
+                <div class="container4">
+                    <select name="" id="">
+                        <option value="SAMSUNG">SAMSUNG</option>
+                        <option value="APPLE">APPLE</option>
+                    </select><br>
+                    <button class="filter">Filter</button>
+                </div>
+
+        </div>
+        <div class="product">
+            <div class="search">
+                <input class="search-input" type="search">
+                <button onclick="searchPro()" class="search-button">Search</button>
+            </div>
+            <div class="product-section">
+                <button class="add">Add New</button>
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Info</th>
+                        <th>Detail</th>
+                        <th>Star</th>
+                        <th>Image</th>
+                        <th>NSX</th>
+                        <th>Category</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody class="product-body">
+                    </tbody>
+                  </table> 
+                  <div class="bar">
+                    <div class="box-bar box1">1</div>
+                    <div class="box-bar box2">2</div>
+                    <div class="box-bar box3">3</div>
+                    <div class="box-bar box4">4</div>
+                    <div class="box-bar box5">5</div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div id="myModal" class="myModal">
+        <div class="modal-content">
+          <span class="close">&times</span>
+          <form action="">
+            <input type="text" class="modal-input" id="txtId">
+            <input type="text" class="modal-input" id="txtName">
+            <input type="text" class="modal-input" id="txtPrice">
+            <input type="text" class="modal-input" id="txtInfo">
+            <input type="text" class="modal-input" id="txtDetail">
+            <input type="text" class="modal-input" id="txtStar">
+            <input type="file" class="modal-input" id="txtImage">
+            <input type="text" class="modal-input" id="txtNSX">
+            <input type="text" class="modal-input" id="txtCategory">             
+            <button class="cancel-button">Cancel</button>
+              <button class="add-button">Add</button>
+          </form>
+        </div>
+      </div>
+</body>
+</html>
