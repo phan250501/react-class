@@ -94,13 +94,13 @@ $(document).ready(function () {
    }, 
    {
     id: 1,
-    name: 'Samsung Galaxy S22 Ultra',
+    name: 'Oppo Reno 6',
     price: 1000,
     info: '6.9 inches, Chip MediaTek Helio G85 (12nm) mạnh mẽ, Ram 4G, Pin 7000 mAh',
     default: 'ProductDetail1',
     star: 5,
     image: 'abc',
-    nsx: 'SAMSUNG',
+    nsx: 'Oppo',
     category: 'Điện thoại',
     edit: 'Edit',
     delete: 'Delete',
@@ -139,13 +139,22 @@ $(document).ready(function(){
 });
 //add
 $(document).ready(function(){
+  $("#myModal").hide();
+  $("#signup-id").hide();
   $(".add").on('click', function(){
-    $("#myModal").css({"display":"block"})
+    $("#myModal").show();
+  })
+  $(".login").on('click', function(){
+    $("#signup-id").show();
   })
   $(".close").click(function (){
-    $("#myModal").css("display","none")
+    $("#myModal").hide();
   })
   $(".cancel-button").click(function (){
-    $("#myModal").css("display","none")
+    $("#myModal").hide();
   })
 });
+
+
+
+

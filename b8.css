@@ -23,6 +23,9 @@
     font-weight: bold;
     margin-bottom: 20px;
 }
+.login, .signup{
+    cursor: pointer;
+}
 .right, .left{
     width: 150px;
     display: flex;
@@ -58,6 +61,7 @@
     width: 100%;
     padding: 5px;
     text-align: center;
+    cursor: pointer;
 }
 .container4{
     border: 0.5px solid gainsboro;
@@ -142,6 +146,9 @@ th, td{
     cursor: pointer;
     float: right;
 }
+td, th{
+    border-bottom: 0.4px solid gainsboro;
+}
 .myModal{
     position: absolute;
     top: 0;
@@ -168,4 +175,11 @@ th, td{
     float: right;
     margin: 0 5px 5px 0;
     cursor: pointer;
+}
+.signup-container{
+    position: fixed;
+    top: 60px;
+    right: 10px;
+    background-color: rgb(154, 200, 240);
+    padding: 10px;
 }
