@@ -51,101 +51,170 @@ $(document).ready(function () {
       $("img").addClass("image-content");
   }
 })
-$(document).ready(function () {
-  var products_list = [
-      {
-         id: 1,
-         name: 'Samsung Galaxy S22 Ultra 5G',
-         price: 1000,
-         info: '6.9 inches, Chip MediaTek Helio G85 (12nm) mạnh mẽ, Ram 4G, Pin 7000 mAh',
-         default: 'ProductDetail1',
-         star: 5,
-         image: 'abc',
-         nsx: 'SAMSUNG',
-         category: 'Điện thoại',
-         edit: 'Edit',
-         delete: 'Delete',
-      },
-      {
-        id: 1,
-        name: 'Samsung Galaxy S23 Ultra',
-        price: 1000,
-        info: '6.9 inches, Chip MediaTek Helio G85 (12nm) mạnh mẽ, Ram 4G, Pin 7000 mAh',
-        default: 'ProductDetail1',
-        star: 5,
-        image: 'abc',
-        nsx: 'SAMSUNG',
-        category: 'Điện thoại',
-        edit: 'Edit',
-        delete: 'Delete',
-     },   
-     {
-      id: 1,
-      name: 'Iphone 11',
-      price: 1000,
-      info: '6.9 inches, Chip MediaTek Helio G85 (12nm) mạnh mẽ, Ram 4G, Pin 7000 mAh',
-      default: 'ProductDetail1',
-      star: 5,
-      image: 'abc',
-      nsx: 'Apple',
-      category: 'Điện thoại',
-      edit: 'Edit',
-      delete: 'Delete',
-   }, 
-   {
-    id: 1,
-    name: 'Samsung Galaxy S22 Ultra',
-    price: 1000,
-    info: '6.9 inches, Chip MediaTek Helio G85 (12nm) mạnh mẽ, Ram 4G, Pin 7000 mAh',
-    default: 'ProductDetail1',
-    star: 5,
-    image: 'abc',
-    nsx: 'SAMSUNG',
-    category: 'Điện thoại',
-    edit: 'Edit',
-    delete: 'Delete',
- },  
-  ]
-  for (i = 0; i < products_list.length; i++) {
-      var item = products_list[i];
-      $(".product-body").append(`
-      <tr><td>  ${item.id} 
-      </td><td class='ten-pro'> ${item.name} 
-      </td><td> ${item.price} 
-      </td><td> ${item.info} 
-      </td><td> ${item.default} 
-      </td><td> ${item.star} 
-      </td><td> ${item.image} 
-      </td><td> ${item.nsx} 
-      </td><td> ${item.category} 
-      </td><td><button class='btn-edit'> ${item.edit} 
-      </td><td><button class='btn-delete'> ${item.delete} </button</td></tr>`);
+//get
+function getListItem() {
+  var listItemStorage = localStorage.getItem('listItem') ? JSON.parse(localStorage.getItem('listItem')) : [];
+  $("#list-items").empty();
+  for (let i = 0; i < listItemStorage.length; i++) {
+      var item = listItemStorage[i];
+      $("#list-items").append(`<tr>
+        <td>${item.id}</td>
+        <td>${item.name}</td>
+        <td>${item.price}</td>
+        <td>${item.info}</td>
+        <td>${item.detail}</td>
+        <td>${item.star}</td>
+        <td>${item.image}</td>
+        <td>${item.nsx}</td>
+        <td>${item.category}</td>
+        <td>
+          <button onclick="openEditModal(${item.id})" type="button" class="btn-edit">Edit</button>
+        </td>
+        <td>
+          <button onclick="removeItem(${item.id})" type="button" class="btn-delete">Remove</button>
+        </td>
+      </tr>`);
   }
-})
+};
+//sửa
+function openEditModal(id) {
+  var listItemStorage = localStorage.getItem('listItem') ? JSON.parse(localStorage.getItem('listItem')) : [];
+  var itemChoice = listItemStorage.find(item => item.id === id);
+  $('#name').val(itemChoice.name);
+  $('#price').val(itemChoice.price);
+  $('#info').val(itemChoice.info);
+  $('#detail').val(itemChoice.detail);
+  $('#star').val(itemChoice.star);
+  $('#image').val(itemChoice.image);
+  $('#nsx').val(itemChoice.nsx);
+  $('#category').val(itemChoice.category);
+  $('#modal').show();
+  localStorage.setItem('idEditing', id);
+}
+//xóa
+function removeItem(id) {
+  var listItemStorage = localStorage.getItem('listItem') ? JSON.parse(localStorage.getItem('listItem')) : [];
+  var itemChoiceIndex = listItemStorage.findIndex(item => item.id === id);
+  listItemStorage.splice(itemChoiceIndex, 1);
+  localStorage.setItem('listItem', JSON.stringify(listItemStorage));
+  getListItem();
+}
 // search
 $(document).ready(function(){
   $(".search-input").on("keyup", function() {
     var value = $(this).val().toLowerCase();
-    $(".product-body tr").filter(function() {
+    $(".product-section tr").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
 });
-// delete
 $(document).ready(function(){
-  $(".btn-delete").on('click', function(){
-    $(this).closest("tr").remove();
-  });
-});
-//add
-$(document).ready(function(){
+  function resetForm() {
+    $('#name').val('');
+    $('#price').val('');
+    $('#info').val('');
+    $('#detail').val('');
+    $('#star').val('');
+    $('#image').val('');
+    $('#nsx').val('');
+    $('#category').val('');
+}
+  $("#modal").hide();
+  $("#signup-id").hide();
   $(".add").on('click', function(){
-    $("#myModal").css({"display":"block"})
+    $("#modal").show();
+  })
+  $(".login").on('click', function(){
+    $("#signup-id").show();
   })
   $(".close").click(function (){
-    $("#myModal").css("display","none")
+    $("#modal").hide();
   })
   $(".cancel-button").click(function (){
-    $("#myModal").css("display","none")
+    $("#modal").hide();
   })
+
+  $('.add-new-button').click(function () {
+    var listItemStorage = localStorage.getItem('listItem') ? JSON.parse(localStorage.getItem('listItem')) : [];
+    var name = $('#name').val();
+    var price = $('#price').val();
+    var info = $('#info').val();
+    var detail = $('#detail').val();
+    var star = $('#star').val();
+    var image = $('#image').val();
+    var nsx = $('#nsx').val();
+    var category = $('#category').val();
+    var itemData = {
+      name,
+      price,
+      info,
+      detail,
+      star,
+      image: image,
+      nsx,
+      category,
+      id: listItemStorage.length + 1
+    }
+    $('#modal').hide();
+    listItemStorage.push(itemData);
+    localStorage.setItem('listItem', JSON.stringify(listItemStorage));
+    getListItem();
+    resetForm();
+  })
+
+  $('.submit-button').click(function () {
+    var listItemStorage = localStorage.getItem('listItem') ? JSON.parse(localStorage.getItem('listItem')) : [];
+    var idEditing = localStorage.getItem('idEditing');
+    var name = $('#name').val();
+    var price = $('#price').val();
+    var info = $('#info').val();
+    var detail = $('#detail').val();
+    var star = $('#star').val();
+    var image = $('#image').val();
+    var nsx = $('#nsx').val();
+    var category = $('#category').val();
+    if (idEditing) {
+      //logic update
+      for (let i = 0; i < listItemStorage.length; i++) {
+        var item = listItemStorage[i];
+        if (item,id === idEditing) {
+          listItemStorage[i] = {
+            name,
+            price,
+            info,
+            detail,
+            star,
+            image,
+            nsx,
+            category,
+            id: idEditing
+          };
+        }
+      }
+      localStorage.removeItem('idEditing');
+      localStorage.setItem('listItem', JSON.stringify(listItemStorage));
+    } else {
+      var itemData = {
+        name,
+        price,
+        info,
+        detail,
+        star,
+        image,
+        nsx,
+        category,
+        id: listItemStorage.length + 1
+      }
+      listItemStorage.removeItem('idEditing');
+      localStorage.setItem('lisItem', JSON,stringify(listItemStorage));
+    }
+    $('#modal').hide();
+    getListItem();
+    resetForm();
+  })
+  getListItem();
 });
+
+
+
+

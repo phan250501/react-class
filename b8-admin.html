@@ -20,7 +20,7 @@
                 <div class="container2">
                     <div class="box">Manufacturer</div>
                     <div class="box">Category</div>
-                    <div class="box">Product</div>
+                    <div class="box nav-product">Product</div>
                     <div class="box">Account</div>
                 </div>
             </div>
@@ -36,6 +36,7 @@
                     <select name="" id="">
                         <option value="SAMSUNG">SAMSUNG</option>
                         <option value="APPLE">APPLE</option>
+                        <option value="OPPO">OPPO</option>
                     </select><br>
                     <button class="filter">Filter</button>
                 </div>
@@ -64,7 +65,8 @@
                         <th>Delete</th>
                       </tr>
                     </thead>
-                    <tbody class="product-body">
+                    <tbody id="list-items">
+
                     </tbody>
                   </table> 
                   <div class="bar">
@@ -77,23 +79,32 @@
             </div>
         </div>
       </div>
-      <div id="myModal" class="myModal">
+      <div id="modal" class="myModal">
         <div class="modal-content">
           <span class="close">&times</span>
           <form action="">
-            <input type="text" class="modal-input" id="txtId">
-            <input type="text" class="modal-input" id="txtName">
-            <input type="text" class="modal-input" id="txtPrice">
-            <input type="text" class="modal-input" id="txtInfo">
-            <input type="text" class="modal-input" id="txtDetail">
-            <input type="text" class="modal-input" id="txtStar">
-            <input type="file" class="modal-input" id="txtImage">
-            <input type="text" class="modal-input" id="txtNSX">
-            <input type="text" class="modal-input" id="txtCategory">             
+            <input type="text" class="modal-input" id="name" placeholder="Name">
+            <input type="text" class="modal-input" id="price" placeholder="Price">
+            <input type="text" class="modal-input" id="info" placeholder="Info">
+            <input type="text" class="modal-input" id="detail" placeholder="Detail">
+            <input type="number" class="modal-input" id="star" placeholder="Star">
+            <input type="file" class="modal-input" id="image" placeholder="Image">
+            <input type="text" class="modal-input" id="nsx" placeholder="NSX">
+            <input type="text" class="modal-input" id="category" placeholder="Category">             
             <button class="cancel-button">Cancel</button>
-              <button class="add-button">Add</button>
+            <button onclick="add_button()" class="submit-button add-new-button">Add</button>
           </form>
         </div>
+      </div>
+      <div id="signup-id" class="signup-container">
+        <form onsubmit="signup()"></form>
+        <label for="username">Tên đăng nhập</label><br>
+        <input type="text" id="username"><br>
+        <label for="email">Email</label><br>
+        <input type="text" id="email"><br>
+        <label for="password">Mật khẩu</label><br>
+        <input type="text" id="password"><br> <br>
+        <button type="submit" onclick="">Đăng nhập</button>
       </div>
 </body>
 </html>
