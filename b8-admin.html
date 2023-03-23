@@ -65,7 +65,8 @@
                         <th>Delete</th>
                       </tr>
                     </thead>
-                    <tbody class="product-body">
+                    <tbody id="list-items">
+
                     </tbody>
                   </table> 
                   <div class="bar">
@@ -78,21 +79,20 @@
             </div>
         </div>
       </div>
-      <div id="myModal" class="myModal">
+      <div id="modal" class="myModal">
         <div class="modal-content">
           <span class="close">&times</span>
           <form action="">
-            <input type="text" class="modal-input" id="txtId" placeholder="ID">
-            <input type="text" class="modal-input" id="txtName" placeholder="Name">
-            <input type="text" class="modal-input" id="txtPrice" placeholder="Price">
-            <input type="text" class="modal-input" id="txtInfo" placeholder="Info">
-            <input type="text" class="modal-input" id="txtDetail" placeholder="Detail">
-            <input type="text" class="modal-input" id="txtStar" placeholder="Star">
-            <input type="file" class="modal-input" id="txtImage" placeholder="Image">
-            <input type="text" class="modal-input" id="txtNSX" placeholder="NSX">
-            <input type="text" class="modal-input" id="txtCategory" placeholder="Category">             
+            <input type="text" class="modal-input" id="name" placeholder="Name">
+            <input type="text" class="modal-input" id="price" placeholder="Price">
+            <input type="text" class="modal-input" id="info" placeholder="Info">
+            <input type="text" class="modal-input" id="detail" placeholder="Detail">
+            <input type="number" class="modal-input" id="star" placeholder="Star">
+            <input type="file" class="modal-input" id="image" placeholder="Image">
+            <input type="text" class="modal-input" id="nsx" placeholder="NSX">
+            <input type="text" class="modal-input" id="category" placeholder="Category">             
             <button class="cancel-button">Cancel</button>
-            <button onclick="add_button()" class="add-button">Add</button>
+            <button onclick="add_button()" class="submit-button add-new-button">Add</button>
           </form>
         </div>
       </div>

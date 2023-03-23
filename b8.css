@@ -171,9 +171,10 @@ td, th{
     width: 98%;
     margin: 10px;
 }
-.cancel-button, .add-button{
+.cancel-button, .add-new-button{
+    padding: 10px;
     float: right;
-    margin: 0 5px 5px 0;
+    margin: 0 10px 5px 0;
     cursor: pointer;
 }
 .signup-container{
